@@ -9,6 +9,9 @@ html {
 }
 
 .page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   margin: auto;
   color: #fff;
   font-family: "Fira Sans Condensed", sans-serif;
@@ -50,12 +53,6 @@ ol {
   background-color: #d9d9d9;
 }
 
-.page {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
 .content {
   display: grid;
   grid-template-columns: 711px 399px;
@@ -94,9 +91,9 @@ ol {
 
 .result__video-container {
   position: relative;
-  width: 711px;
-  height: 386px;
   margin-bottom: 16px;
+  inline-size: 711px;
+  block-size: 386px;
 }
 
 .result__video {
@@ -110,6 +107,7 @@ ol {
   display: flex;
   flex-direction: column;
   gap: 30px;
+  padding-top: 1px;
 }
 
 .content__list > li:last-child {
@@ -142,7 +140,7 @@ ol {
 }
 
 .title {
-  margin-bottom: 20px; /* ❌ ❌ ❌ у меня 20, а по макету 26 */
+  margin-bottom: 20px;
   font-family: "Oswald", "Arial", "Helvetica", sans-serif;
   font-weight: 700;
   font-size: 75px;
@@ -168,6 +166,7 @@ ol {
 }
 
 .content__video-card-title {
+  width: 100%;
   overflow: hidden;
   font-family: "Oswald", "Arial", "Helvetica", sans-serif;
   font-weight: 700;
@@ -179,13 +178,15 @@ ol {
 }
 
 .content__video-card-description {
+  display: -webkit-box;
   overflow: hidden;
   font-family: "Fira Sans Condensed", "Arial", "Helvetica", sans-serif;
   font-weight: 400;
   font-size: 18px;
   font-style: normal;
   line-height: 0.9;
-  line-clamp: 3;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
 }
 
 .visually-hidden {
@@ -235,8 +236,7 @@ ol {
   appearance: none;
 }
 
-.search-form__label:has(.search-form__textfield:focus-visible) {
-  /* состояние :active не работает ❌ ❌ ❌ */
+.search-form__label:has(:focus-visible) {
   outline: 1px solid #fff;
   outline-offset: 1px;
 }
@@ -252,8 +252,8 @@ ol {
 
 .search-form__pseudo-checkbox::after {
   content: "";
-  width: 19px;
-  height: 19px;
+  width: 15px;
+  height: 15px;
   opacity: 0;
   background-color: white;
 }
@@ -274,6 +274,7 @@ ol {
 }
 
 .button {
+  min-height: 34px;
   border: 1px solid #fff;
   padding-top: 3px;
   color: #fff;
@@ -288,12 +289,10 @@ ol {
 .search-form__submit-button {
   align-self: end;
   width: 194px;
-  height: 34px;
 }
 
 .more-button {
   width: 100%;
-  height: 34px;
 }
 
 .button:focus {
@@ -319,24 +318,19 @@ ol {
   background-color: #545050;
 }
 
-.content__video-card:focus {
+.content__card-link:focus {
   outline: none;
 }
 
-.content__video-card:hover {
+.content__card-link:hover {
   text-decoration: underline solid #fff;
 }
 
-.content__video-card:active {
+.content__card-link:active {
   background-color: #545050;
 }
 
 .content__card-link:focus-visible {
-  outline: none;
-  outline: 1px solid #fff;
-}
-
-.result__video:focus-visible {
   outline: none;
   outline: 1px solid #fff;
 }
